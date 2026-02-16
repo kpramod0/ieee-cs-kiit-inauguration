@@ -1,0 +1,1345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>IEEE CS KIIT SBC – Grand Inauguration Ceremony</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+    <style>
+        /* ─── Reset ─── */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #030810;
+            color: #e0e8f0;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* ─── Animated Background ─── */
+        .bg-wrapper {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+        }
+
+        .bg-wrapper .orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.3;
+            animation: orbFloat 12s ease-in-out infinite alternate;
+        }
+
+        .orb.o1 {
+            width: 500px;
+            height: 500px;
+            background: #00629b;
+            top: -10%;
+            left: -10%;
+            animation-delay: 0s;
+        }
+
+        .orb.o2 {
+            width: 400px;
+            height: 400px;
+            background: #0090d9;
+            bottom: -5%;
+            right: -8%;
+            animation-delay: -4s;
+        }
+
+        .orb.o3 {
+            width: 300px;
+            height: 300px;
+            background: #00416a;
+            top: 40%;
+            left: 50%;
+            animation-delay: -8s;
+        }
+
+        @keyframes orbFloat {
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            50% {
+                transform: translate(30px, -40px) scale(1.15);
+            }
+
+            100% {
+                transform: translate(-20px, 20px) scale(0.9);
+            }
+        }
+
+        #particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* ─── Main Wrapper ─── */
+        .mail-wrapper {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 720px;
+            /* Slight increase for better grid fit */
+            margin: 40px auto;
+            backdrop-filter: blur(5px);
+            /* Enhances glass effect */
+            border-radius: 16px;
+            overflow: hidden;
+            /* Contains content within rounded corners */
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .mail-container {
+            padding: 0;
+            background: rgba(3, 8, 16, 0.85);
+            /* Darker, slightly transparent bg */
+        }
+
+        /* ─── Hero Section ─── */
+
+        .hero {
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 98, 155, 0.25) 0%, rgba(0, 60, 100, 0.15) 50%, rgba(0, 0, 0, 0) 100%);
+            padding: 50px 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            /* Enhance backdrop */
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .logo-wrapper {
+            position: relative;
+            width: 200px;
+            /* Much larger orbit */
+            height: 200px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-ring {
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            background: conic-gradient(from 0deg, transparent 50%, #4db8e8 100%) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask-composite: exclude;
+            -webkit-mask-composite: destination-out;
+            animation: ringSpin 3s linear infinite;
+            box-shadow: 0 0 20px rgba(77, 184, 232, 0.5);
+            /* Glow */
+        }
+
+        .logo-bg {
+            position: absolute;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background: #ffffff;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1;
+            box-shadow: 0 0 40px rgba(0, 98, 155, 0.4);
+        }
+
+        @keyframes ringSpin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-logo {
+            width: 100px;
+            height: auto;
+            position: relative;
+            z-index: 2;
+            filter: drop-shadow(0 0 15px rgba(77, 184, 232, 0.4));
+        }
+
+        .invite-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(77, 184, 232, 0.1);
+            border: 1px solid rgba(77, 184, 232, 0.3);
+            color: #4db8e8;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            padding: 8px 20px;
+            border-radius: 50px;
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        .invite-badge .dot {
+            width: 8px;
+            height: 8px;
+            background: #4df0c8;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #4df0c8;
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            50% {
+                transform: scale(1.5);
+                opacity: 0.5;
+            }
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 36px;
+            line-height: 1.25;
+            color: #fff;
+            margin-bottom: 15px;
+            font-weight: 800;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .chapter-sub {
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 13px;
+            color: #a0b0c0;
+            margin-bottom: 12px;
+        }
+
+        .stb {
+            font-size: 13px;
+            color: #6a8da8;
+            font-family: 'Space Grotesk', monospace;
+            background: rgba(255, 255, 255, 0.06);
+            display: inline-block;
+            padding: 5px 18px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* ─── Inauguration Banner ─── */
+        .inaug-banner {
+            background: linear-gradient(90deg, #0e1928, #162a44, #0e1928);
+            padding: 35px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .inaug-ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 12px;
+            opacity: 0.5;
+        }
+
+        .oLine {
+            width: 50px;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #4db8e8, transparent);
+        }
+
+        .oDiamond {
+            width: 10px;
+            height: 10px;
+            background: #00629b;
+            transform: rotate(45deg);
+            border: 1px solid #4db8e8;
+        }
+
+        .inaug-banner h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 34px;
+            color: #4db8e8;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+            font-weight: 700;
+        }
+
+        .inaug-banner h2::before {
+            content: '★ ';
+            color: #4db8e8;
+            text-shadow: 0 0 10px #4db8e8, 0 0 20px #fff;
+            animation: pulseStar 2s infinite alternate;
+        }
+
+        .inaug-banner h2::after {
+            content: ' ★';
+            color: #4db8e8;
+            text-shadow: 0 0 10px #4db8e8, 0 0 20px #fff;
+            animation: pulseStar 2s infinite alternate;
+        }
+
+        @keyframes pulseStar {
+            from {
+                text-shadow: 0 0 10px #4db8e8, 0 0 20px #fff;
+                transform: scale(0.8);
+            }
+
+            to {
+                text-shadow: 0 0 25px #4db8e8, 0 0 50px #fff;
+                transform: scale(1.4);
+            }
+        }
+
+        .sub-event {
+            font-size: 15px;
+            color: #b0c0d0;
+        }
+
+        .sub-event strong {
+            color: #fff;
+            border-bottom: 1px solid #4db8e8;
+            padding-bottom: 1px;
+        }
+
+        /* ─── Countdown Section ─── */
+        .countdown-section {
+            background: #0b1420;
+            padding: 35px 30px;
+            text-align: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .countdown-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+            color: #8899aa;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 25px;
+        }
+
+        .countdown-label .dot {
+            width: 8px;
+            height: 8px;
+            background: #4df0c8;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #4df0c8;
+            animation: pulse 1.5s infinite;
+        }
+
+        .countdown-grid {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 25px;
+        }
+
+        .cd-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(77, 184, 232, 0.2);
+            border-radius: 12px;
+            padding: 18px 15px;
+            min-width: 90px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        }
+
+        .cd-box::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #4db8e8, transparent);
+            opacity: 0.6;
+            border-radius: 12px 12px 0 0;
+        }
+
+        .cd-value {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 42px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+            margin-bottom: 6px;
+        }
+
+        .cd-unit {
+            font-size: 10px;
+            color: #6a7a8a;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .cd-separator {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .cd-separator span {
+            display: block;
+            width: 5px;
+            height: 5px;
+            background: #4db8e8;
+            border-radius: 50%;
+            opacity: 0.6;
+        }
+
+        .event-meta {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .meta-chip {
+            background: rgba(77, 184, 232, 0.08);
+            border: 1px solid rgba(77, 184, 232, 0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            color: #d0e0ec;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .meta-chip img {
+            vertical-align: middle;
+        }
+
+        /* ─── Body Content ─── */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(77, 184, 232, 0.2), transparent);
+            width: 100%;
+        }
+
+        .body-content {
+            padding: 45px 35px;
+            background: rgba(8, 15, 25, 0.9);
+        }
+
+        .greeting {
+            font-family: 'Playfair Display', serif;
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .body-content>p {
+            line-height: 1.8;
+            margin-bottom: 22px;
+            font-size: 15px;
+            color: #b0c0d0;
+        }
+
+        .body-content>p strong {
+            color: #fff;
+        }
+
+        /* ─── Info Cards ─── */
+        .info-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin: 30px 0;
+        }
+
+        .glass-card {
+            background: rgba(14, 28, 44, 0.7);
+            border: 1px solid rgba(77, 184, 232, 0.15);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            background: rgba(14, 28, 44, 0.9);
+            border-color: rgba(77, 184, 232, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-icon {
+            width: 48px;
+            height: 48px;
+            background: rgba(0, 98, 155, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .card-icon img {
+            width: 24px;
+            height: 24px;
+        }
+
+        .card-content h4 {
+            color: #4db8e8;
+            font-size: 12px;
+            margin-bottom: 6px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .card-content p {
+            margin: 0;
+            font-size: 15px;
+            color: #c0d0e0;
+            line-height: 1.5;
+        }
+
+        .card-content p strong {
+            color: #fff;
+        }
+
+        /* ─── Expect Section ─── */
+        .expect-section {
+            margin: 35px 0;
+        }
+
+        .section-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 26px;
+            color: #fff;
+            margin-bottom: 25px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-heading::after {
+            content: '';
+            position: absolute;
+            right: -60px;
+            top: 50%;
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, #4db8e8, transparent);
+        }
+
+        .expect-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .expect-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            background: rgba(14, 28, 44, 0.6);
+            padding: 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.3s ease;
+        }
+
+        .expect-item:hover {
+            transform: translateY(-3px);
+            border-color: rgba(77, 184, 232, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .ei-icon {
+            flex-shrink: 0;
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .ei-icon img {
+            width: 22px;
+            height: 22px;
+        }
+
+        .ei-text {
+            font-size: 14px;
+            color: #c0cddb;
+            line-height: 1.5;
+        }
+
+        /* ─── Advisor & Committee Section ─── */
+        .advisors-section {
+            margin: 40px 0 20px;
+        }
+
+        .advisor-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        /* Specific Grids for Rows */
+        /* Specific Grids for Rows */
+        .grid-row-1 {
+            grid-template-columns: repeat(5, 1fr) !important;
+        }
+
+        .grid-row-2 {
+            grid-template-columns: repeat(6, 1fr) !important;
+            gap: 8px !important;
+            /* Tighter gap */
+        }
+
+        /* Compact cards for the 6-column row to prevent overflow */
+        .grid-row-2 .advisor-card {
+            padding: 15px 5px;
+            /* Reduced horizontal padding */
+        }
+
+        .grid-row-2 .advisor-avatar {
+            width: 60px;
+            /* Smaller avatar */
+            height: 60px;
+            border-width: 2px;
+            padding: 2px;
+            margin-bottom: 8px;
+        }
+
+        .grid-row-2 .a-name {
+            font-size: 12px;
+            /* Smaller font */
+        }
+
+        .grid-row-2 .a-role {
+            font-size: 9px;
+        }
+
+        .advisor-card {
+            background: rgba(14, 28, 44, 0.5);
+            padding: 22px 12px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .advisor-card:hover {
+            background: rgba(14, 28, 44, 0.8);
+            border-color: rgba(77, 184, 232, 0.25);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .advisor-avatar {
+            width: 85px;
+            height: 85px;
+            border-radius: 50%;
+            object-fit: cover;
+            /* Zoom out -> larger padding */
+            /* Lower -> 'center top' shows the forehead */
+            object-position: center top;
+            transform: scale(0.85);
+            border: 3px solid rgba(255, 255, 255, 0.9);
+            margin: 0 auto 10px;
+            padding: 4px;
+            background: #0e1c2c;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .advisor-card:hover .advisor-avatar {
+            transform: scale(1);
+            border-color: #4db8e8;
+        }
+
+        .a-name {
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .a-role {
+            color: #6a8da8;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ─── CTA Section ─── */
+        .cta-section {
+            padding: 50px 30px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 98, 155, 0.12) 100%);
+        }
+
+        .cta-tagline {
+            font-family: 'Playfair Display', serif;
+            font-size: 30px;
+            color: #fff;
+            margin-bottom: 12px;
+            line-height: 1.3;
+            font-weight: 700;
+        }
+
+        .cta-sub {
+            font-size: 15px;
+            color: #8a9bb0;
+            margin-bottom: 35px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 16px 35px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 15px;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00629b, #0090d9);
+            color: #fff;
+            box-shadow: 0 4px 20px rgba(0, 98, 155, 0.5);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 98, 155, 0.7);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #4db8e8;
+            border: 2px solid rgba(77, 184, 232, 0.5);
+        }
+
+        .btn-outline:hover {
+            background: rgba(77, 184, 232, 0.1);
+            color: #fff;
+            border-color: #4db8e8;
+            transform: translateY(-3px);
+            box-shadow: 0 0 15px rgba(77, 184, 232, 0.4);
+        }
+
+        .btn-white-icon img {
+            filter: brightness(0) invert(1);
+        }
+
+        .btn img {
+            width: 22px;
+            height: 22px;
+        }
+
+        /* ─── Footer ─── */
+        .footer {
+            background: #050a12;
+            padding: 45px 25px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .social-row {
+            display: flex;
+            justify-content: center;
+            gap: 14px;
+            margin-bottom: 30px;
+        }
+
+        .social-btn {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-btn:hover {
+            background: rgba(0, 98, 155, 0.3);
+            border-color: #4db8e8;
+            transform: scale(1.1);
+        }
+
+        .social-btn img {
+            width: 22px;
+            height: 22px;
+        }
+
+        .footer-info {
+            font-size: 14px;
+            color: #6a7a8a;
+            margin-bottom: 25px;
+            line-height: 1.8;
+        }
+
+        .footer-info strong {
+            color: #d0e0ec;
+        }
+
+        .footer-info a {
+            color: #4db8e8;
+            text-decoration: none;
+        }
+
+        .footer-brand {
+            font-size: 11px;
+            color: #405060;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .eco-note {
+            font-size: 12px;
+            color: #2d6d55;
+            margin-top: 12px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        /* ─── Scroll Reveal Animation ─── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ─── Responsive ─── */
+        @media (max-width: 600px) {
+            .mail-wrapper {
+                margin: 0;
+                border-radius: 0;
+            }
+
+            .hero {
+                padding: 40px 20px;
+            }
+
+            .hero h1 {
+                font-size: 26px;
+            }
+
+            .inaug-banner h2 {
+                font-size: 26px;
+            }
+
+            .countdown-grid {
+                gap: 8px;
+            }
+
+            .cd-box {
+                min-width: 70px;
+                padding: 14px 10px;
+            }
+
+            .cd-value {
+                font-size: 32px;
+            }
+
+            .cd-separator {
+                display: none;
+            }
+
+            .body-content {
+                padding: 30px 20px;
+            }
+
+            .expect-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .advisor-grid {
+                grid-template-columns: 1fr 1fr !important;
+            }
+
+            .event-meta {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .greeting {
+                font-size: 20px;
+            }
+
+            .cta-tagline {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ─── Animated BG ─── -->
+    <div class="bg-wrapper">
+        <div class="orb o1"></div>
+        <div class="orb o2"></div>
+        <div class="orb o3"></div>
+    </div>
+    <canvas id="particles"></canvas>
+
+    <div class="mail-wrapper">
+        <div class="mail-container">
+
+            <!-- ═══════ HERO ═══════ -->
+            <div class="hero">
+                <div class="logo-wrapper">
+                    <div class="logo-ring"></div>
+                    <div class="logo-bg"></div>
+                    <img class="hero-logo" src="https://share1.cloudhq-mkt3.net/227de3a4b604e7.png"
+                        alt="IEEE CS KIIT SBC Logo" />
+                </div>
+
+                <div class="invite-badge">
+                    <span class="dot"></span>
+                    You Are Cordially Invited
+                </div>
+
+                <h1>IEEE Computer Society<br />KIIT Student Branch Chapter</h1>
+                <div class="chapter-sub">Kalinga Institute of Industrial Technology</div>
+                <div class="stb">STB 15881N</div>
+            </div>
+
+            <!-- ═══════ INAUGURATION BANNER ═══════ -->
+            <div class="inaug-banner reveal">
+                <div class="inaug-ornament">
+                    <span class="oLine"></span>
+                    <span class="oDiamond"></span>
+                    <span class="oLine"></span>
+                </div>
+                <h2>Grand Inauguration</h2>
+                <p class="sub-event">
+                    Along with <strong>Orientation</strong> &amp;
+                    <strong>IEEE Membership Drive</strong>
+                </p>
+            </div>
+
+            <!-- ═══════ COUNTDOWN ═══════ -->
+            <div class="countdown-section reveal">
+                <div class="countdown-label">
+                    <span class="dot"></span> Event Starts In
+                </div>
+
+                <div class="countdown-grid" id="countdown">
+                    <div class="cd-box">
+                        <span class="cd-value" id="days">--</span>
+                        <span class="cd-unit">Days</span>
+                    </div>
+                    <div class="cd-separator"><span></span><span></span></div>
+                    <div class="cd-box">
+                        <span class="cd-value" id="hours">--</span>
+                        <span class="cd-unit">Hours</span>
+                    </div>
+                    <div class="cd-separator"><span></span><span></span></div>
+                    <div class="cd-box">
+                        <span class="cd-value" id="minutes">--</span>
+                        <span class="cd-unit">Minutes</span>
+                    </div>
+                    <div class="cd-separator"><span></span><span></span></div>
+                    <div class="cd-box">
+                        <span class="cd-value" id="seconds">--</span>
+                        <span class="cd-unit">Seconds</span>
+                    </div>
+                </div>
+
+                <div class="event-meta">
+                    <div class="meta-chip">
+                        <img src="https://img.icons8.com/fluency/48/calendar.png" width="18" height="18">
+                        <strong>28th February 2026</strong>
+                    </div>
+                    <div class="meta-chip">
+                        <img src="https://img.icons8.com/fluency/48/clock.png" width="18" height="18">
+                        10:00 AM IST
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════ BODY ═══════ -->
+            <div class="divider"></div>
+
+            <div class="body-content">
+                <h3 class="greeting reveal">Dear Esteemed Guests, Faculty &amp; Students,</h3>
+                <p class="reveal">
+                    It is with great pride and enthusiasm that we invite you to the <strong>Grand Inauguration
+                        Ceremony</strong>
+                    of the <strong>IEEE Computer Society KIIT Student Branch Chapter (STB 15881N)</strong>. This
+                    landmark
+                    event marks the beginning of an exciting new chapter under the
+                    <strong>IEEE Computer Society</strong> – the world's premier organization of computing
+                    professionals.
+                </p>
+                <p class="reveal">
+                    The ceremony will be followed by an immersive <strong>Orientation &amp; IEEE Membership
+                        Drive</strong>,
+                    designed to showcase IEEE's global footprint, exclusive membership benefits, and the technical,
+                    professional, and research-driven initiatives of the IEEE KIIT Student Branch.
+                </p>
+
+                <!-- ── Info Cards ── -->
+                <div class="info-cards reveal">
+                    <div class="glass-card">
+                        <div class="card-icon"><img src="https://img.icons8.com/fluency/48/calendar.png"></div>
+                        <div class="card-content">
+                            <h4>Date &amp; Time</h4>
+                            <p><strong>28th February 2026</strong> &nbsp;·&nbsp; 10:00 AM Onwards</p>
+                        </div>
+                    </div>
+                    <div class="glass-card">
+                        <div class="card-icon"><img src="https://img.icons8.com/fluency/48/marker.png"></div>
+                        <div class="card-content">
+                            <h4>Venue</h4>
+                            <p>Auditorium, Campus 7<br />KIIT Deemed to be University, Bhubaneswar – 751024</p>
+                        </div>
+                    </div>
+                    <div class="glass-card">
+                        <div class="card-icon"><img src="https://img.icons8.com/fluency/48/conference-call.png"></div>
+                        <div class="card-content">
+                            <h4>Open For</h4>
+                            <p>Faculty Members, Students &amp; Distinguished Guests</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── What to Expect ── -->
+                <div class="expect-section reveal">
+                    <h3 class="section-heading">What to Expect</h3>
+                    <div class="expect-grid">
+                        <div class="expect-item">
+                            <span class="ei-icon"><img
+                                    src="https://img.icons8.com/fluency/48/graduation-cap.png"></span>
+                            <span class="ei-text">Grand Inauguration by Distinguished Guests &amp; Senior Faculty</span>
+                        </div>
+                        <div class="expect-item">
+                            <span class="ei-icon"><img src="https://img.icons8.com/fluency/48/internet.png"></span>
+                            <span class="ei-text">Overview of IEEE Computer Society &amp; its Global Impact</span>
+                        </div>
+                        <div class="expect-item">
+                            <span class="ei-icon"><img src="https://img.icons8.com/fluency/48/task.png"></span>
+                            <span class="ei-text">Orientation on IEEE Membership Benefits &amp; Opportunities</span>
+                        </div>
+                        <div class="expect-item">
+                            <span class="ei-icon"><img src="https://img.icons8.com/fluency/48/idea.png"></span>
+                            <span class="ei-text">Upcoming Research, Workshops, Hackathons &amp; Projects</span>
+                        </div>
+                        <div class="expect-item">
+                            <span class="ei-icon"><img src="https://img.icons8.com/fluency/48/handshake.png"></span>
+                            <span class="ei-text">Networking with Faculty, Industry Experts &amp; IEEE Members</span>
+                        </div>
+                        <div class="expect-item">
+                            <span class="ei-icon"><img src="https://img.icons8.com/fluency/48/rocket.png"></span>
+                            <span class="ei-text">IEEE Membership Drive – Enroll &amp; Begin Your Journey!</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ── Faculty Advisor ── -->
+                <div class="advisors-section reveal">
+                    <h3 class="section-heading">Faculty Advisor</h3>
+                    <div class="advisor-grid" style="grid-template-columns: 1fr; max-width: 380px; margin: 0 auto;">
+                        <div class="advisor-card">
+                            <img class="advisor-avatar" src="./image.png" alt="Dr. Amiya Ranjan Panda"
+                                onerror="this.src='https://dummyimage.com/150x150/00629b/fff&text=AP'" />
+                            <div class="a-name">Dr. Amiya Ranjan Panda</div>
+                            <div class="a-role">Advisor · IEEE KIIT SBC (CSE)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ─── Executive Committee ─── -->
+                <div class="advisors-section reveal">
+                    <h3 class="section-heading">Executive Committee</h3>
+                    <!-- Row 1: 5 Members -->
+                    <div class="advisor-grid grid-row-1" style="gap: 10px; margin-bottom: 16px;">
+                        <div class="advisor-card">
+                            <img class="advisor-avatar" src="./Lubdhak Nairith Saha Arnish.png"
+                                alt="Lubdhak Nairith Saha Arnish"
+                                onerror="this.src='https://dummyimage.com/150x150/00629b/fff&text=LNSA'" />
+                            <div class="a-name">Lubdhak Nairith Saha Arnish</div>
+                            <div class="a-role">Chair</div>
+                        </div>
+                        <div class="advisor-card">
+                            <img class="advisor-avatar" src="./Niharika Sen.png" alt="Niharika Sen"
+                                onerror="this.src='https://dummyimage.com/150x150/00629b/fff&text=NS'" />
+                            <div class="a-name">Niharika Sen</div>
+                            <div class="a-role">Vice Chair</div>
+                        </div>
+                        <div class="advisor-card">
+                            <img class="advisor-avatar" src="./Anirudha Patnaik.png" alt="Anirudha Patnaik"
+                                onerror="this.src='https://dummyimage.com/150x150/00629b/fff&text=AP'" />
+                            <div class="a-name">Anirudha Patnaik</div>
+                            <div class="a-role">Secretary</div>
+                        </div>
+                        <div class="advisor-card">
+                            <img class="advisor-avatar" src="./Astik Mishra.png" alt="Astik Mishra"
+                                onerror="this.src='https://dummyimage.com/150x150/00629b/fff&text=AM'" />
+                            <div class="a-name">Astik Mishra</div>
+                            <div class="a-role">Treasurer</div>
+                        </div>
+                        <div class="advisor-card">
+                            <img class="advisor-avatar" src="./Subhashree Patnaik.png" alt="Subhashree Patnaik"
+                                onerror="this.src='https://dummyimage.com/150x150/00629b/fff&text=SP'" />
+                            <div class="a-name">Subhashree Patnaik</div>
+                            <div class="a-role">Web Master</div>
+                        </div>
+                    </div>
+
+                    <!-- Row 2: 6 Members -->
+                    <div class="advisor-grid grid-row-2" style="gap: 10px;">
+                        <div class="advisor-card">
+                            <img class="advisor-avatar" src="./Arpan Ganguli.png" alt="Arpan Ganguli"
+                                onerror="this.src='https://dummyimage.com/150x150/00629b/fff&text=AG'" />
+                            <div class="a-name">Arpan Ganguli</div>
+                            <div class="a-role">Web Master</div>
+                        </div>
+                        <div class="advisor-card">
+                            <img class="advisor-avatar" src="./Preeti Gupta.png" alt="Preeti Gupta"
+                                onerror="this.src='https://dummyimage.com/150x150/00629b/fff&text=PG'" />
+                            <div class="a-name">Preeti Gupta</div>
+                            <div class="a-role">Web Master</div>
+                        </div>
+                        <div class="advisor-card">
+                            <img class="advisor-avatar" src="./Pramod Kumar.jpeg" alt="Pramod Kumar"
+                                style="padding: 2px; transform: scale(1.15); object-position: center top;"
+                                onerror="this.src='https://dummyimage.com/150x150/00629b/fff&text=PK'" />
+                            <div class="a-name">Pramod Kumar</div>
+                            <div class="a-role">Web Master</div>
+                        </div>
+                        <div class="advisor-card">
+                            <img class="advisor-avatar" src="./Ayushi Kumari.png" alt="Ayushi Kumari"
+                                onerror="this.src='https://dummyimage.com/150x150/00629b/fff&text=AK'" />
+                            <div class="a-name">Ayushi Kumari</div>
+                            <div class="a-role">Social Media &amp; Outreach (Lead)</div>
+                        </div>
+                        <div class="advisor-card">
+                            <img class="advisor-avatar" src="./Akansha Chakrovarty.png" alt="Akansha Chakrovarty"
+                                onerror="this.src='https://dummyimage.com/150x150/00629b/fff&text=AC'" />
+                            <div class="a-name">Akansha Chakrovarty</div>
+                            <div class="a-role">Event Management (Lead)</div>
+                        </div>
+                        <div class="advisor-card">
+                            <img class="advisor-avatar" src="./Aeindri.png" alt="Aeindri"
+                                onerror="this.src='https://dummyimage.com/150x150/00629b/fff&text=A'" />
+                            <div class="a-name">Aeindri</div>
+                            <div class="a-role">R &amp; D (Lead)</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ═══════ CTA ═══════ -->
+            <div class="divider"></div>
+
+            <div class="cta-section reveal">
+                <p class="cta-tagline">Be Part of the Legacy.<br />Shape the Future of Computing.</p>
+                <p class="cta-sub">Join 250+ innovators at KIIT's newest IEEE Chapter</p>
+                <div class="cta-buttons">
+                    <a href="https://chat.whatsapp.com/B6gDbYQd7XWILaPs2qwUuE?mode=gi_t" class="btn btn-primary"
+                        target="_blank">
+                        <img src="https://img.icons8.com/color/48/whatsapp.png"> Join WhatsApp Group
+                    </a>
+                    <a href="https://r10.ieee.org/bhubaneswar-computer/" class="btn btn-outline" target="_blank">
+                        <img src="https://img.icons8.com/fluency/48/domain.png"> Visit Website
+                    </a>
+                </div>
+            </div>
+
+            <div class="divider"></div>
+
+            <!-- ═══════ FOOTER ═══════ -->
+            <div class="footer">
+                <div class="social-row">
+                    <a href="https://r10.ieee.org/bhubaneswar-computer/" class="social-btn" target="_blank"
+                        title="Website"><img src="https://img.icons8.com/fluency/48/domain.png"></a>
+                    <a href="https://www.linkedin.com/company/ieee-cs-kiit-sbc/" class="social-btn" target="_blank"
+                        title="LinkedIn"><img src="https://img.icons8.com/color/48/linkedin.png"></a>
+                    <a href="https://www.instagram.com/ieee_cs_kiit___?igsh=MXdvZjBwcG84MHdrNw==" class="social-btn"
+                        target="_blank" title="Instagram"><img
+                            src="https://img.icons8.com/fluency/48/instagram-new.png"></a>
+                    <a href="https://www.facebook.com/ieeecskiit" class="social-btn" target="_blank"
+                        title="Facebook"><img src="https://img.icons8.com/color/48/facebook-new.png"></a>
+                    <a href="mailto:ieee.kiit@kiit.ac.in" class="social-btn" title="Email"><img
+                            src="https://img.icons8.com/fluency/48/mail.png"></a>
+                </div>
+                <div class="footer-info">
+                    <strong>Founder &amp; Chairperson:</strong> Prajwal Panth<br />
+                    <strong>Counselor:</strong> Dr. Chinmoy Kumar Panigrahi<br /><br />
+                    <img src="https://img.icons8.com/fluency/48/mail.png" width="16" height="16"
+                        style="display: inline; vertical-align: middle; margin-right: 5px;"> <a
+                        href="mailto:ieee.kiit@kiit.ac.in">ieee.kiit@kiit.ac.in</a>
+                </div>
+                <div class="footer-brand">
+                    © 2026 IEEE Computer Society KIIT Student Branch Chapter (STB 15881N)<br />
+                    KIIT Deemed to be University, Bhubaneswar – 751024
+                </div>
+                <div class="eco-note">
+                    <img src="https://img.icons8.com/fluency/48/leaf.png" width="14" height="14"> Go Green – Please
+                    don't print unless necessary
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ═══════ SCRIPTS ═══════ -->
+    <script>
+        /* ─── Particle Stars ─── */
+        (function () {
+            const canvas = document.getElementById('particles');
+            const ctx = canvas.getContext('2d');
+            let w, h, stars = [];
+
+            function resize() {
+                w = canvas.width = window.innerWidth;
+                h = canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            class Star {
+                constructor() { this.reset(); }
+                reset() {
+                    this.x = Math.random() * w;
+                    this.y = Math.random() * h;
+                    this.r = Math.random() * 1.5 + 0.3;
+                    this.o = Math.random() * 0.5 + 0.1;
+                    this.sp = Math.random() * 0.02 + 0.005;
+                    this.dir = Math.random() > 0.5 ? 1 : -1;
+                }
+                update() {
+                    this.o += this.sp * this.dir;
+                    if (this.o > 0.6 || this.o < 0.05) this.dir *= -1;
+                }
+                draw() {
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+                    ctx.fillStyle = `rgba(120, 190, 240, ${this.o})`;
+                    ctx.fill();
+                }
+            }
+
+            for (let i = 0; i < 120; i++) stars.push(new Star());
+
+            (function loop() {
+                ctx.clearRect(0, 0, w, h);
+                stars.forEach(s => { s.update(); s.draw(); });
+                requestAnimationFrame(loop);
+            })();
+        })();
+
+        /* ─── Countdown Timer ─── */
+        (function () {
+            const target = new Date('2026-02-28T10:00:00+05:30').getTime();
+            const pad = n => n < 10 ? '0' + n : n;
+
+            function tick() {
+                const diff = target - Date.now();
+                if (diff <= 0) {
+                    document.getElementById('days').textContent = '00';
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                    return;
+                }
+                const d = Math.floor(diff / 864e5);
+                const hh = Math.floor((diff % 864e5) / 36e5);
+                const mm = Math.floor((diff % 36e5) / 6e4);
+                const ss = Math.floor((diff % 6e4) / 1000);
+
+                document.getElementById('days').textContent = pad(d);
+                document.getElementById('hours').textContent = pad(hh);
+                document.getElementById('minutes').textContent = pad(mm);
+                document.getElementById('seconds').textContent = pad(ss);
+            }
+
+            tick();
+            setInterval(tick, 1000);
+        })();
+
+        /* ─── Scroll Reveal ─── */
+        (function () {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+        })();
+    </script>
+
+</body>
+
+</html>
